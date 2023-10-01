@@ -30,3 +30,8 @@ Chat with the document :
 
 ## Snapshots
 
+User queries
+
+![Screenshot from 2023-10-01 08-32-31](https://github.com/msouvikrepo/doc-chat-local/assets/127878886/76c8ad0a-4e31-4ed9-85f0-a32c689b4ae9)
+
+
