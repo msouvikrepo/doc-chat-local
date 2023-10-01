@@ -1,1 +1,1 @@
-# doc-chat-local
+# Chat securely with your documents using locally hosted LLM
