@@ -3,10 +3,10 @@ import pinecone
 
 import streamlit as st
 
-model = SentenceTransformer('google/flan-t5-base')
+model = SentenceTransformer('google/flan-t5-base') #Change with your embedding model of choice
 
-pinecone.init(api_key='023454eb-f48c-4a78-ba68-e8f2fac6e897', environment='gcp-starter')
-index = pinecone.Index('langchain-chatbot')
+pinecone.init(api_key='#pinecone api key', environment='#pinecone environment')
+index = pinecone.Index('#pinecone index name')
 
 def find_match(input):
     input_em = model.encode(input).tolist()

@@ -13,7 +13,7 @@ import streamlit as st
 from streamlit_chat import message
 from utils import *
 
-st.subheader("Talk to your documents")
+st.subheader("Talk to your document")
 
 if 'responses' not in st.session_state:
     st.session_state['responses'] = ["How can I assist you?"]
@@ -21,7 +21,7 @@ if 'responses' not in st.session_state:
 if 'requests' not in st.session_state:
     st.session_state['requests'] = []
 
-model_name = "google/flan-t5-base"
+model_name = "google/flan-t5-base" #Use model of your choice
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
 @st.cache_resource
@@ -34,8 +34,6 @@ def load_chain():
         max_length=100
     )
     llm = HuggingFacePipeline(pipeline=pipe)
-    #memory = ConversationBufferMemory()
-    #chain = ConversationChain(llm=local_llm, memory=memory)
     return llm
 
 # this is the object we will work with in the app - it contains the LLM info
@@ -45,18 +43,15 @@ if 'buffer_memory' not in st.session_state:
             st.session_state.buffer_memory=ConversationBufferMemory(k=3,return_messages=True)
 
 
-system_msg_template = SystemMessagePromptTemplate.from_template(template="""Answer the question as truthfully as possible using the provided context 
-                                                                and if the answer is not contained within the text below, say 'I don't know'""")
+system_msg_template = SystemMessagePromptTemplate.from_template(template="""Answer the question as truthfully as possible using the provided context and if the answer is not contained within the text below, say 'I don't know'""")
 
 
 human_msg_template = HumanMessagePromptTemplate.from_template(template="{input}")
 
 prompt_template = ChatPromptTemplate.from_messages([system_msg_template, MessagesPlaceholder(variable_name="history"), human_msg_template])
 
+# TODO : Summarize history before feeding it back into conversation chain
 conversation = ConversationChain(memory=st.session_state.buffer_memory, prompt=prompt_template, llm=chatchain, verbose=True)
-
-
-
 
 # container for chat history
 response_container = st.container()
