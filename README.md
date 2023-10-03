@@ -1,5 +1,5 @@
 
-# Chat securely with your documents using locally hosted LLM / scaled LLM from Sagemaker
+# Chat securely with your documents using private LLM
 
 ## Solution Architecture
 
