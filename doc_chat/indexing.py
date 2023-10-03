@@ -6,7 +6,7 @@ from langchain.embeddings import SentenceTransformerEmbeddings
 from langchain.vectorstores import Pinecone
 
 directory = (
-    "/media/souvik/Data/docana-langchain/langchain_code/assets/Aadhar.txt"
+    "Directory pointing to your docs"
 )
 
 
@@ -29,9 +29,9 @@ def split_docs(documents, chunk_size=500, chunk_overlap=20):
 
 docs = split_docs(documents)
 
-embeddings = SentenceTransformerEmbeddings(model_name="google/flan-t5-base")
+embeddings = SentenceTransformerEmbeddings(model_name="google/flan-t5-base") #Create embeddings with your favourite model
 
-pinecone.init(api_key="023454eb-f48c-4a78-ba68-e8f2fac6e897", environment="gcp-starter")
+pinecone.init(api_key="Pinecone api key", environment="Pinecone environment")
 
-index_name = "langchain-chatbot"
+index_name = "Pinecone index name"
 index = Pinecone.from_documents(docs, embeddings, index_name=index_name)
