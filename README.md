@@ -8,7 +8,7 @@
 ## Tech Stack
 1. Python 3.10 or higher
 2. Pinecone as Vector Store
-3. Huggingface and Transformers for locally deploying LLM (We are using Google's Flan T5 Base model with 248M parameters - so that my laptop doesn't die)
+3. Huggingface and Transformers for locally deploying LLM (We are using Google's Flan T5 Base model with 248M parameters (3GB) - so that my laptop doesn't die)
 4. Langchain for Conversation chain wrapper around the LLM
 5. Streamlit for the UI
 6. AWS Sagemaker for scaled up version
