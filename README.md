@@ -3,7 +3,7 @@
 
 ## Solution Architecture
 
-
+![doc-chat](https://github.com/msouvikrepo/doc-chat-local/assets/127878886/2db30966-404a-45e9-aaf2-f4014a51eb35)
 
 ## Tech Stack
 1. Python 3.10 or higher
